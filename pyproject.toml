@@ -5,9 +5,10 @@ description = "REST API Service using spaCy NLP for Named Entity Recognition"
 authors = ["Stefan Weber <stefan.weber@spatium.one>"]
 license = "MIT"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 fastapi = "^0.112.0"
 uvicorn = "^0.30.5"
 spacy = "^3.7.5"
