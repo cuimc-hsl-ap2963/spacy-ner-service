@@ -1,14 +1,9 @@
 from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
-from .models import RecognitionRequest, RecognitionResponse, HealthResponse
+from .models import RecognitionRequest, RecognitionResponse
 from .services import entity_service
 
 app = FastAPI()
-
-
-@app.get("/health", response_model=HealthResponse)
-async def health_check():
-    return HealthResponse(status="success")
 
 
 @app.post("/ner", response_model=RecognitionResponse)

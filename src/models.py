@@ -15,7 +15,3 @@ class RecognitionRequest(BaseModel):
 
 class RecognitionResponse(BaseModel):
     entities: List[Entity]
-
-
-class HealthResponse(BaseModel):
-    status: str
