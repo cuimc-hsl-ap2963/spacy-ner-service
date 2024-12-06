@@ -1,23 +1,14 @@
 import spacy
-from .models import Entity
 from typing import List
 
 
 class EntityService:
     def __init__(self):
-        self.nlp = spacy.load("en_core_web_sm")
+        self.nlp = spacy.load("en_core_web_trf")
 
-    def process(self, text: str) -> List[Entity]:
+    def process(self, text: str) -> List[str]:
         doc = self.nlp(text)
-        return [
-            Entity(
-                text=ent.text,
-                label=ent.label_,
-                start=ent.start_char,
-                end=ent.end_char
-            )
-            for ent in doc.ents
-        ]
+        return [ent.text for ent in doc.ents if ent.label_ == "ORG"]
 
 
 entity_service = EntityService()
